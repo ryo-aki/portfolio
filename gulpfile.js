@@ -7,6 +7,12 @@ var gulp = require('gulp');
     plumber = require('gulp-plumber');
     watch = require('gulp-watch');
     webserver = require('gulp-webserver');
+    webServerOptions = {
+        host : '0.0.0.0',
+        port : '8000',
+        open : 'false',
+        fallback : 'index.html'
+    }
 
 gulp.task('sass',function(){
     gulp.src(['src/scss/**/*.scss','!'+'src/**/仮/*.scss','!'+'src/**/'+'_'+'*.scss']).pipe(plumber()).pipe(sass({outputStyle:'expanded'})).pipe(auto()).pipe(gulp.dest('build/css'));
